@@ -18,7 +18,7 @@ module "hpcs" {
 module "keyprotect" {
   source = "github.com/ibm-garage-cloud/terraform-ibm-key-protect.git?ref=v2.2.0"
 
-  skip                = !local.hpcs_kms
+  skip                = local.hpcs_kms
   resource_group_name = var.resource_group_name
   region              = var.region
   name_prefix         = var.name_prefix
