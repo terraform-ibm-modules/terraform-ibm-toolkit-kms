@@ -1,23 +1,10 @@
-# Starter kit for a Terraform module
+# KMS module
 
-This is a Starter kit to help with the creation of Terraform modules. The basic structure of a Terraform module is fairly
-simple and consists of the following basic values:
+Module to provision and/or lookup a Key Management Service (KMS) on IBM Cloud. 
 
-- README.md - provides a description of the module
-- main.tf - defiens the logic for the module
-- variables.tf (optional) - defines the input variables for the module
-- outputs.tf (optional) - defines the values that are output from the module
+Within IBM Cloud there are two options for Key Management Services: bring-your-own-key software-based Key Protect service and keep-your-own-key HMS Hyper Protect Crypto Service (HPCS). As you might imagine, the cost of each of these services is significantly different and it is often preferable to use Key Protect in POC and development environments then switch to HPCS for critical environments.
 
-Beyond those files, any other content can be added and organized however you see fit. For example, you can add a `scripts/` directory
-that contains shell scripts executed by a `local-exec` `null_resource` in the terraform module. The contents will depend on what your
-module does and how it does it.
-
-## Instructions for creating a new module
-
-1. Update the title and description in the README to match the module you are creating
-2. Fill out the remaining sections in the README template as appropriate
-3. Implement your logic in the in the main.tf, variables.tf, and outputs.tf
-4. Use releases/tags to manage release versions of your module
+Fortunately, the APIs used to access Key Protect and HPCS are the same making them easily interchangeable. This module makes use of the Key Protect and HPCS modules as submodules and conditionally provisions one or the other based on the value of the `service` variable. If `keyprotect` is provided for the value then an instance of Key Protect is provisioned. If `hpcs` is provided then an HPCS instance is used. If an instance of Key Protect or HPCS already exists then you can provide `false` in the value for the `provision` flag and the module will look for an existing instance with the name provided.
 
 ## Software dependencies
 
@@ -25,21 +12,17 @@ The module depends on the following software components:
 
 ### Command-line tools
 
-- terraform - v12
-- kubectl
+- terraform - v14
 
 ### Terraform providers
 
-- IBM Cloud provider >= 1.5.3
-- Helm provider >= 1.1.1 (provided by Terraform)
+None
 
 ## Module dependencies
 
 This module makes use of the output from other modules:
 
-- Cluster - github.com/ibm-garage-cloud/terraform-ibm-container-platform.git
-- Namespace - github.com/ibm-garage-clout/terraform-cluster-namespace.git
-- etc
+- Resource group - github.com/cloud-native-toolkit/terraform-ibm-resource-group
 
 ## Example usage
 
