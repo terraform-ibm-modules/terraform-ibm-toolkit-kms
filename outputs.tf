@@ -20,7 +20,7 @@ output "crn" {
 
 output "location" {
   description = "The location of the provisioned instance"
-  value       = local.module.region
+  value       = local.module.location
 }
 
 output "service" {
