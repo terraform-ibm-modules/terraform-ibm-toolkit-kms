@@ -10,6 +10,7 @@ module "hpcs" {
   resource_group_name    = var.resource_group_name
   region                 = var.region
   name_prefix            = var.name_prefix
+  name                   = var.name
   provision              = var.provision
   ibmcloud_api_key       = var.ibmcloud_api_key
   number_of_crypto_units = var.number_of_crypto_units
@@ -22,6 +23,7 @@ module "keyprotect" {
   resource_group_name = var.resource_group_name
   region              = var.region
   name_prefix         = var.name_prefix
+  name                = var.name
   provision           = var.provision
   ibmcloud_api_key    = var.ibmcloud_api_key
 }
