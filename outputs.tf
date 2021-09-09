@@ -37,3 +37,13 @@ output "type" {
   description = "The type of the resource"
   value       = null
 }
+
+output "public_url" {
+  description = "The public endpoint for the resource"
+  value       = local.module.public_url
+}
+
+output "private_url" {
+  description = "The private endpoint for the resource"
+  value       = local.module.private_url
+}

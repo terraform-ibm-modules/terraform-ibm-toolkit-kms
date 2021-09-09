@@ -4,7 +4,7 @@ locals {
 }
 
 module "hpcs" {
-  source = "github.com/cloud-native-toolkit/terraform-ibm-hpcs.git?ref=v1.3.0"
+  source = "github.com/cloud-native-toolkit/terraform-ibm-hpcs.git?ref=v1.4.0"
 
   skip                   = !local.hpcs_kms
   resource_group_name    = var.resource_group_name
@@ -17,7 +17,7 @@ module "hpcs" {
 }
 
 module "keyprotect" {
-  source = "github.com/ibm-garage-cloud/terraform-ibm-key-protect.git?ref=v2.2.0"
+  source = "github.com/ibm-garage-cloud/terraform-ibm-key-protect.git?ref=v2.2.1"
 
   skip                = local.hpcs_kms
   resource_group_name = var.resource_group_name
