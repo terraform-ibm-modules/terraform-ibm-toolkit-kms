@@ -32,3 +32,8 @@ output "label" {
   description = "The label for the instance"
   value       = local.module.label
 }
+
+output "type" {
+  description = "The type of the resource"
+  value       = null
+}
