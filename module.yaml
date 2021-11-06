@@ -8,6 +8,9 @@ tags:
   - key protect
 versions:
   - platforms: []
+  providers:
+    - name: ibm
+      source: "ibm-cloud/ibm"
     dependencies:
       - id: resource_group
         refs:
@@ -23,7 +26,5 @@ versions:
       - name: name_prefix
         scope: global
       - name: name
-      - name: ibmcloud_api_key
-        scope: global
       - name: private_endpoint
         scope: global
