@@ -4,7 +4,7 @@ locals {
 }
 
 module "hpcs" {
-  source = "github.com/cloud-native-toolkit/terraform-ibm-hpcs.git?ref=v1.4.0"
+  source = "github.com/cloud-native-toolkit/terraform-ibm-hpcs.git?ref=v1.5.0"
 
   skip                   = !local.hpcs_kms
   resource_group_name    = var.resource_group_name
@@ -12,12 +12,11 @@ module "hpcs" {
   name_prefix            = var.name_prefix
   name                   = var.name
   provision              = var.provision
-  ibmcloud_api_key       = var.ibmcloud_api_key
   number_of_crypto_units = var.number_of_crypto_units
 }
 
 module "keyprotect" {
-  source = "github.com/ibm-garage-cloud/terraform-ibm-key-protect.git?ref=v2.2.1"
+  source = "github.com/ibm-garage-cloud/terraform-ibm-key-protect.git?ref=v2.3.0"
 
   skip                = local.hpcs_kms
   resource_group_name = var.resource_group_name
@@ -25,5 +24,4 @@ module "keyprotect" {
   name_prefix         = var.name_prefix
   name                = var.name
   provision           = var.provision
-  ibmcloud_api_key    = var.ibmcloud_api_key
 }
