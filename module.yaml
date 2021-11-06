@@ -8,7 +8,7 @@ tags:
   - key protect
 versions:
   - platforms: []
-  providers:
+    providers:
     - name: ibm
       source: "ibm-cloud/ibm"
     dependencies:
