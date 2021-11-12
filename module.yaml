@@ -9,8 +9,8 @@ tags:
 versions:
   - platforms: []
     providers:
-    - name: ibm
-      source: "ibm-cloud/ibm"
+      - name: ibm
+        source: "ibm-cloud/ibm"
     dependencies:
       - id: resource_group
         refs:
