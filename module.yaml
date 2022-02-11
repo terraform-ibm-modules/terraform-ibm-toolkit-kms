@@ -2,7 +2,7 @@ name: ibm-kms
 type: terraform
 description: Module to provision Key Protect
 interfaces:
-  - github.com/cloud-native-toolkit/garage-terraform-modules#ibm-service
+  - github.com/cloud-native-toolkit/automation-modules#ibm-service
 tags:
   - tools
   - kms
